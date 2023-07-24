@@ -1,0 +1,17 @@
+
+// LESSON-1 
+props < context < redux
+Babel nedir ?
+React-Router nedir ?
+Axios nedir ?
+webpack nedir ?
+typescript nedir ?
+Ecmascript nedir  ?
+internatialization nedir ?
+React Resuability nedir ?
+object destructing nedir ?
+Js class constructor nedir ?
+Js class super keyword nedir ?
+React bind ne için kullanıyoruz.
+Component Did Mount 
+npm ile yarn arasındaki farklar ?
