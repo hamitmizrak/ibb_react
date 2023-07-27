@@ -24,6 +24,10 @@ class BlogApi {
     /////////////////////////////////////////////////////////////////////
     // CREATE
     // http://localhost:4444/blog/api/v1/create
+    // {
+    //     "header":"header data",
+    //     "content":"content data",
+    // }
     blogServiceCreate(blogDto) {
         return axios.post(`${BLOG_URL}/create`, blogDto);
     }
@@ -41,11 +45,17 @@ class BlogApi {
     }
 
     // DELETE
+    // http://localhost:4444/blog/api/v1/delete/1
     blogServiceDeleteId(id) {
         return axios.delete(`${BLOG_URL}/delete/${id}`);
     }
 
     // UPDATE
+     // {
+    //     "header":"header data",
+    //     "content":"content data",
+    // }
+    // http://localhost:4444/blog/api/v1/update/24
     blogServiceUpdateId(id, blogDto) {
         return axios.put(`${BLOG_URL}/update/${id}`, blogDto);
     }
