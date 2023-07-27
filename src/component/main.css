@@ -1,0 +1,11 @@
+p{
+    text-transform: capitalize;
+    margin:2rem 3rem;
+    text-align: justify;
+}
+p:hover{
+    background-color: black;
+    color:white;
+    padding:1rem;
+    transition: 2s all;
+}
