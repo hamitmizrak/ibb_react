@@ -1,6 +1,9 @@
 // rcc
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
+import Header from './component/Header';
+import Main from './component/Main';
+import Footer from './component/Footer';
 
 // CLASS
 class RouterBlog extends Component {
@@ -27,7 +30,14 @@ class RouterBlog extends Component {
 
         // Return
         return (
-            <div>RouterBlog</div>
+            <React.Fragment>
+
+                <Header/>
+                <br />
+                <Main/>
+                <br/>
+                <Footer/>
+            </React.Fragment>
         ) //end return
     } //end render
 } //end class
