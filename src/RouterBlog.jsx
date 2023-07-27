@@ -1,8 +1,9 @@
 // rcc
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next';
 
 // CLASS
-export default class RouterBlog extends Component {
+class RouterBlog extends Component {
 
     // displayName
     static displayName=" Router_Blog";
@@ -30,3 +31,9 @@ export default class RouterBlog extends Component {
         ) //end return
     } //end render
 } //end class
+
+// Class Adı aşağıda gösterme
+//export default RouterBlog();
+
+// Higher Order Component
+export default withTranslation()(RouterBlog);
