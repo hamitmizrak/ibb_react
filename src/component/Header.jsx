@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
+import OtherLanguageReusability from '../internationalization/OtherLanguageReusability';
 
 class Header extends Component {
 
@@ -47,15 +48,20 @@ class Header extends Component {
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
                                     <a className="nav-link active" href="#" aria-current="page">
-                                        Home <span className="visually-hidden">(current)</span>
+                                        {this.props.t('homepage')} <span className="visually-hidden">(current)</span>
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
-                                        Link
+                                    {this.props.t('about')} 
                                     </a>
                                 </li>
-                                <li className="nav-item dropdown">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">
+                                    {this.props.t('blog')} 
+                                    </a>
+                                </li>
+                                {/* <li className="nav-item dropdown">
                                     <a
                                         className="nav-link dropdown-toggle"
                                         href="#"
@@ -74,8 +80,10 @@ class Header extends Component {
                                             Action 2
                                         </a>
                                     </div>
-                                </li>
+                                </li> */}
                             </ul>
+
+                            <OtherLanguageReusability/>
 
                             <form className="d-flex my-2 my-lg-0">
                                 <input

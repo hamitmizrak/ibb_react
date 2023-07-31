@@ -8,6 +8,7 @@ import cardPicture from "../assist/img/resim.jpg"
 
 // Router
 import {Link} from "react-router-dom";
+import OtherLanguageReusability from '../internationalization/OtherLanguageReusability';
 
 export default class Main extends Component {
     render() {

@@ -27,15 +27,15 @@ function OtherLanguageReusability(props) {
     // RETURN
     return (
         <React.Fragment>
-            <ul class="list-group list-group-numbered">
-                <li class="list-group-item active">
-                    <Link className="btn btn-primary" onClick={() => internationalizationLanguageServise('tr')}>
-                        <img src={tr_flag} />
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li className="nav-item">
+                    <Link className="nav-link" onClick={() => internationalizationLanguageServise('tr')}>
+                        <img src={tr_flag} style={{height:"20px"}} alt='tr' />
                     </Link>
                 </li>
-                <li class="list-group-item active">
-                    <Link className="btn btn-primary" onClick={() => internationalizationLanguageServise('en')}>
-                        <img src={en_flag} />
+                <li className="nav-item">
+                    <Link className="nav-link" onClick={() => internationalizationLanguageServise('en')}>
+                        <img src={en_flag} style={{height:"20px"}} alt='tr'/>
                     </Link>
                 </li>
             </ul>
@@ -44,4 +44,4 @@ function OtherLanguageReusability(props) {
 }
 
 
-export default withTranslation(OtherLanguageReusability)()
+export default withTranslation()(OtherLanguageReusability)
