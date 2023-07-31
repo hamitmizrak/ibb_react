@@ -23,14 +23,17 @@ class Header extends Component {
 
     // Render
     render() {
-
+        // object destructing
+        const { logo, t } = this.props;
+        
         //RETURN
         return (
             <React.Fragment>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div className="container">
                         <a className="navbar-brand" href="#">
-                        <i className={this.props.logo}></i>  
+                            {/* <i className={this.props.logo}></i> */}
+                            <i className={logo}></i>
                         </a>
                         <button
                             className="navbar-toggler d-lg-none"
@@ -53,12 +56,12 @@ class Header extends Component {
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
-                                    {this.props.t('about')} 
+                                        {t('about')}
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
-                                    {this.props.t('blog')} 
+                                        {t('blog')}
                                     </a>
                                 </li>
                                 {/* <li className="nav-item dropdown">
@@ -83,7 +86,8 @@ class Header extends Component {
                                 </li> */}
                             </ul>
 
-                            <OtherLanguageReusability/>
+                            {/* dil için */}
+                            <OtherLanguageReusability />
 
                             <form className="d-flex my-2 my-lg-0">
                                 <input
