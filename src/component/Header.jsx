@@ -42,6 +42,7 @@ class Header extends Component {
                         >
                             <span className="navbar-toggler-icon" />
                         </button>
+
                         <div className="collapse navbar-collapse" id="collapsibleNavId">
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
@@ -75,6 +76,7 @@ class Header extends Component {
                                     </div>
                                 </li>
                             </ul>
+
                             <form className="d-flex my-2 my-lg-0">
                                 <input
                                     className="form-control me-sm-2"

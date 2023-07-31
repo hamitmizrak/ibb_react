@@ -6,7 +6,7 @@ import RouterBlog from './RouterBlog';
 
 // BrowserRouter
 // BrowserRouter  ==> http://localhost:3000/
-// HashRouter  ==> http://localhost:3000/#/
+// HashRouter     ==> http://localhost:3000/#/
 import { BrowserRouter } from 'react-router-dom';
 
 // ROOT

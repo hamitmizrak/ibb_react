@@ -58,6 +58,7 @@ class Footer extends Component {
                         </div>
                         {/* Right */}
                     </section>
+
                     {/* Section: Social media */}
                     {/* Section: Links  */}
                     <section className="">
@@ -103,6 +104,7 @@ class Footer extends Component {
                                     </p>
                                 </div>
                                 {/* Grid column */}
+
                                 {/* Grid column */}
                                 <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                                     {/* Links */}
@@ -129,6 +131,7 @@ class Footer extends Component {
                                     </p>
                                 </div>
                                 {/* Grid column */}
+
                                 {/* Grid column */}
                                 <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                                     {/* Links */}
@@ -153,6 +156,7 @@ class Footer extends Component {
                             {/* Grid row */}
                         </div>
                     </section>
+
                     {/* Section: Links  */}
                     {/* Copyright */}
                     <div
