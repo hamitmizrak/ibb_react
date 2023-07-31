@@ -17,6 +17,9 @@ i18n.use(initReactI18next).init({
                     'blog_header':"Blog Header",
                     'blog_content':"Blog Content",
                     'date':"Date",
+                    'update':"Update",
+                    'view':"View",
+                    'delete':"Delete",
                 }
             },
         tr:
@@ -33,6 +36,9 @@ i18n.use(initReactI18next).init({
                     'blog_header':"Blog Başlığı",
                     'blog_content':"Blog İçeriği",
                     'date':"Tarih",
+                    'update':"Güncelle",
+                    'view':"Göster",
+                    'delete':"Sil",
                 }
             }
     },
