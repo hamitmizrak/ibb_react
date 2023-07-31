@@ -67,7 +67,6 @@ class BlogList extends Component {
             </tr>
           </thead>
           <tbody>
-
             {
               blogList.map((temp) =>
                 <tr key={temp.id}>
@@ -75,9 +74,9 @@ class BlogList extends Component {
                   <td>{temp.header}</td>
                   <td>{temp.content}</td>
                   <td>{temp.systemDate}</td>
-                  <td><i className="fa-solid fa-pen-nib text-primary" style={{ "cursor": "pointer" }}></i></td>
-                  <td><i className="fa-solid fa-binoculars text-warning" style={{ "cursor": "pointer" }}></i></td>
-                  <td><i className="fa-solid fa-trash text-danger" style={{ "cursor": "pointer" }}></i></td>
+                  <td><i className="fa-solid fa-pen-nib text-primary text-center" style={{ "cursor": "pointer" }}></i></td>
+                  <td><i className="fa-solid fa-binoculars text-warning text-center" style={{ "cursor": "pointer" }}></i></td>
+                  <td><i className="fa-solid fa-trash text-danger text-center" style={{ "cursor": "pointer" }}></i></td>
                 </tr>
               )
             } 
