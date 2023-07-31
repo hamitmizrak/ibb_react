@@ -1,5 +1,4 @@
 
-
 // rfc
 import React from 'react'
 
@@ -42,6 +41,5 @@ function OtherLanguageReusability(props) {
         </React.Fragment>
     )
 }
-
 
 export default withTranslation()(OtherLanguageReusability)

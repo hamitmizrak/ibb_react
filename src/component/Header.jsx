@@ -25,7 +25,7 @@ class Header extends Component {
     render() {
         // object destructing
         const { logo, t } = this.props;
-        
+
         //RETURN
         return (
             <React.Fragment>
