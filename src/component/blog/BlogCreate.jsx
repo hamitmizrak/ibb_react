@@ -12,6 +12,9 @@ class BlogCreate extends Component {
 
     // STATE
     this.state = {
+      header: null,
+      content: null,
+      blogDto: {}, //object
     }; //end constructor
 
     // BIND
@@ -36,8 +39,8 @@ class BlogCreate extends Component {
             <input
               type="text"
               className="form-control"
-              id=""
-              name=""
+              id="header"
+              name="header"
               placeholder={t("blog_header")}
               required={true}
               autoFocus={true}
@@ -49,13 +52,21 @@ class BlogCreate extends Component {
             <span>{t("blog_content")}</span>
             <textarea
               className="form-control"
-              id=""
-              name=""
+              id="content"
+              name="content"
               required={true}
               placeholder={t("blog_content")}
               rows="6"></textarea>
           </div>
-          <button className="btn btn-primary mb-5">{t('submit')}</button>
+
+          {/* SUBMIT */}
+
+          <button 
+          className="btn btn-danger mb-5 me-2">{t('reset')}</button>
+
+          <button 
+          className="btn btn-primary mb-5">{t('submit')}</button>
+          <input type="checkbox" /> Anlaşmayı okunuz mu
           <br /><br /><br /><br /> <br /><br /><br />
         </form>
       </React.Fragment>

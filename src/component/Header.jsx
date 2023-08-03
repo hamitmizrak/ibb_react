@@ -64,7 +64,10 @@ class Header extends Component {
                                         {t('blog')}
                                     </a>
                                 </li>
-                                {/* <li className="nav-item dropdown">
+                            </ul>
+
+                            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li className="nav-item dropdown">
                                     <a
                                         className="nav-link dropdown-toggle"
                                         href="#"
@@ -73,17 +76,17 @@ class Header extends Component {
                                         aria-haspopup="true"
                                         aria-expanded="false"
                                     >
-                                        Dropdown
+                                         {t('member_process')}
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="dropdownId">
                                         <a className="dropdown-item" href="#">
-                                            Action 1
+                                        {t('login')}
                                         </a>
                                         <a className="dropdown-item" href="#">
-                                            Action 2
+                                        {t('register')}
                                         </a>
                                     </div>
-                                </li> */}
+                                </li> 
                             </ul>
 
                             {/* dil için */}

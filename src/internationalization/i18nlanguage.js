@@ -19,9 +19,13 @@ i18n.use(initReactI18next).init({
                     'blog_content':"Blog Content",
                     'date':"Date",
                     'submit':"Submit",
+                    'reset':"Reset",
                     'update':"Update",
                     'view':"View",
                     'delete':"Delete",
+                    'member_process':"member process",
+                    'register':"register",
+                    'login':"login",
                 }
             },
         tr:
@@ -40,9 +44,13 @@ i18n.use(initReactI18next).init({
                     'blog_content':"Blog İçeriği",
                     'date':"Tarih",
                     'submit':"Gönder",
+                    'reset':"Temizle",
                     'update':"Güncelle",
                     'view':"Göster",
                     'delete':"Sil",
+                    'member_process':"Üye İşlemleri",
+                    'register':"Üye Kayıtı",
+                    'login':"Üye Girişi",
                 }
             }
     },
