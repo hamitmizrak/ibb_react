@@ -15,6 +15,7 @@ class BlogCreate extends Component {
       header: null,
       content: null,
       blogDto: {}, //object
+      isRead: false, // sözleşme kuralları
     }; //end constructor
 
     // BIND
@@ -22,10 +23,19 @@ class BlogCreate extends Component {
 
   // CDM
 
+  // FUNCTION
+  onChangeIsRead = (event) => {
+    console.log(event.target.checked);
+    this.setState({
+      isRead: event.target.checked,
+    })
+  }
+
   //RENDER
   render() {
     //object destructing
     const { t } = this.props;
+    const { isRead } = this.state;
 
     // RETURN
     return (
@@ -59,14 +69,23 @@ class BlogCreate extends Component {
               rows="6"></textarea>
           </div>
 
+          <div className="form-check mb-3">
+            <input 
+            className="form-check-input" 
+            type="checkbox" 
+            onChange={this.onChangeIsRead}
+            id="isReadId"
+            name="isReadId"/>
+            <label   className="form-check-label" htmlFor="isReadId"> Anlaşmayı okunuz mu </label>
+          </div>
+
           {/* SUBMIT */}
+          <button
+            className="btn btn-danger mb-5 me-2">{t('reset')}</button>
 
-          <button 
-          className="btn btn-danger mb-5 me-2">{t('reset')}</button>
-
-          <button 
-          className="btn btn-primary mb-5">{t('submit')}</button>
-          <input type="checkbox" /> Anlaşmayı okunuz mu
+          <button
+            className="btn btn-primary mb-5"
+            disabled={!isRead}>{t('submit')}</button>
           <br /><br /><br /><br /> <br /><br /><br />
         </form>
       </React.Fragment>
