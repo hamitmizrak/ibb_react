@@ -147,14 +147,19 @@ class BlogCreate extends Component {
 
           {/* RESET */}
           <button
-            className="btn btn-danger mb-5 me-2">{t('reset')}</button>
+            className="btn btn-danger mb-5 me-2">{t('reset')}
+          </button>
 
           {/* SUBMIT */}
           <button
+            type="submit"
             className="btn btn-primary mb-5"
             disabled={!isRead}
-            onClick={this.createSubmit}
-          >  {t('submit')}</button>
+            onClick={this.createSubmit}>
+            {(this.state.spinnerData) && <span className="spinner-border text-warning"></span>}
+            {t('submit')}
+          </button>
+
           <br /><br /><br /><br /> <br /><br /><br />
         </form>
       </React.Fragment>
