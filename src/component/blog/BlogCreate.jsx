@@ -17,11 +17,13 @@ class BlogCreate extends Component {
       content: null,
       blogDto: {}, //object
       isRead: false, // sözleşme kuralları
+      spinnerData: false, //Spinner
     }; //end constructor
 
     // BIND
     this.onChangeIsRead = this.onChangeIsRead.bind(this);
     this.onChangeInputValue = this.onChangeInputValue.bind(this);
+    this.createSubmit = this.createSubmit.bind(this);
   }
 
   // CDM
@@ -52,7 +54,6 @@ class BlogCreate extends Component {
     })
   }
 
-
   // CREATE SUBMIT
   createSubmit = async (event) => {
     // Browser sen dur bir şey yapma
@@ -77,13 +78,20 @@ class BlogCreate extends Component {
 
     // 2.YOL(asyn-await)
     try {
+      // SPINNER GÖNDERMEDEN ÖNCE
+      this.setState({ spinnerData: true })
+      // CREATE
       const response = await BlogApi.blogServiceCreate(blogDto);
       if (response.status == 200) {
-        //alert("Ekleme Başarılı")
-        console.log("Ekleme Başarılı")
+        alert("Ekleme Başarılı")
+        //console.log("Ekleme Başarılı");
+        // SPINNER GÖNDERMEDEN ÖNCE
+        this.setState({ spinnerData: false })
       }
     } catch (err) {
-      console.error(err)
+      console.error(err);
+      // HATA SPINNER ÇALIŞSIN
+      this.setState({ spinnerData: true })
     }
   }
 
@@ -146,7 +154,7 @@ class BlogCreate extends Component {
             className="btn btn-primary mb-5"
             disabled={!isRead}
             onClick={this.createSubmit}
-          >{t('submit')}</button>
+          >  {t('submit')}</button>
           <br /><br /><br /><br /> <br /><br /><br />
         </form>
       </React.Fragment>
