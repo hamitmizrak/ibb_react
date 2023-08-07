@@ -63,6 +63,8 @@ class BlogCreate extends Component {
     }
     console.log(blogDto);
 
+    // 1 .YOL(promise)
+    /*
     BlogApi.blogServiceCreate(blogDto).then((response) => {
       if (response.status == 200) {
         //alert("Ekleme Başarılı")
@@ -70,8 +72,19 @@ class BlogCreate extends Component {
       }
     }).catch((err) => {
       console.error(err)
-    }); //end then
+    }); */
+    //end then
 
+    // 2.YOL(asyn-await)
+    try {
+      const response = await BlogApi.blogServiceCreate(blogDto);
+      if (response.status == 200) {
+        //alert("Ekleme Başarılı")
+        console.log("Ekleme Başarılı")
+      }
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   //RENDER
@@ -133,7 +146,7 @@ class BlogCreate extends Component {
             className="btn btn-primary mb-5"
             disabled={!isRead}
             onClick={this.createSubmit}
-            >{t('submit')}</button>
+          >{t('submit')}</button>
           <br /><br /><br /><br /> <br /><br /><br />
         </form>
       </React.Fragment>
