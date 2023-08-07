@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next'
 
 // Blog Api
 import BlogApi from '../../services/BlogApi';
-import { Link, Navigate, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // CLASS 
 class BlogList extends Component {
@@ -48,11 +48,15 @@ class BlogList extends Component {
   // UPDATE
   update(id) {
     //alert(id);
+    window.open("/blog/update/"+id);
   }
 
   // VIEW
   view(id) {
     //alert(id);
+    //this.props.history.push("/blog/view/"+id)
+    window.open("/blog/view/"+id);
+    
   }
 
   // DELETE
@@ -115,11 +119,12 @@ class BlogList extends Component {
 
                   {/* VIEW */}
                   <td>
+                    <Link to={`/blog/view/${temp.id}`}>
                     <i
                       className="fa-solid fa-binoculars text-warning text-center"
-                      style={{ "cursor": "pointer" }}
-                      onClick={() => this.view(temp.id)}>
+                      style={{ "cursor": "pointer" }}>
                     </i>
+                    </Link>
                   </td>
 
                   {/* DELETE */}
@@ -146,5 +151,5 @@ class BlogList extends Component {
   } //end render
 } // end class
 
-// 
+// npm install react-icons --save
 export default withTranslation()(BlogList);
