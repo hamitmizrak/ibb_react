@@ -18,6 +18,7 @@ class BlogCreate extends Component {
       blogDto: {}, //object
       isRead: false, // sözleşme kuralları
       spinnerData: false, //Spinner
+      multipleRequest: false, // çoklu kayıtlara izin verme
     }; //end constructor
 
     // BIND
@@ -79,19 +80,28 @@ class BlogCreate extends Component {
     // 2.YOL(asyn-await)
     try {
       // SPINNER GÖNDERMEDEN ÖNCE
-      this.setState({ spinnerData: true })
+      this.setState({
+        spinnerData: true,
+        multipleRequest: false
+      })
       // CREATE
       const response = await BlogApi.blogServiceCreate(blogDto);
       if (response.status == 200) {
-        alert("Ekleme Başarılı")
-        //console.log("Ekleme Başarılı");
+        //alert("Ekleme Başarılı")
+        console.log("Ekleme Başarılı");
         // SPINNER GÖNDERMEDEN ÖNCE
-        this.setState({ spinnerData: false })
+        this.setState({ 
+          spinnerData: false,
+          multipleRequest: true
+         })
       }
     } catch (err) {
       console.error(err);
       // HATA SPINNER ÇALIŞSIN
-      this.setState({ spinnerData: true })
+      this.setState({ 
+        spinnerData: true,
+        multipleRequest: false
+      })
     }
   }
 
@@ -99,7 +109,7 @@ class BlogCreate extends Component {
   render() {
     //object destructing
     const { t } = this.props;
-    const { isRead } = this.state;
+    const { isRead, multipleRequest } = this.state;
 
     // RETURN
     return (
@@ -154,7 +164,7 @@ class BlogCreate extends Component {
           <button
             type="submit"
             className="btn btn-primary mb-5"
-            disabled={!isRead}
+            disabled={(!isRead) && (multipleRequest)}
             onClick={this.createSubmit}>
             {(this.state.spinnerData) && <span className="spinner-border text-warning"></span>}
             {t('submit')}
