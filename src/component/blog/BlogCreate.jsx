@@ -19,6 +19,8 @@ class BlogCreate extends Component {
     }; //end constructor
 
     // BIND
+    this.onChangeIsRead=this.onChangeIsRead.bind(this);
+    this.onChangeInputValue=this.onChangeInputValue.bind(this);
   }
 
   // CDM
