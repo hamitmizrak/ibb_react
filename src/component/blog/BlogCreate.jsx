@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import BlogApi from '../../services/BlogApi';
+import ResuabilityBlogInput from './ResuabilityBlogInput';
 
 class BlogCreate extends Component {
 
@@ -118,8 +119,9 @@ class BlogCreate extends Component {
 
         <form>
           {/* HEADER */}
+          {/* 
           <div className="form-group mb-4">
-            <span>{t("blog_header")}</span>
+            <label>{t("blog_header")}</label>
             <input
               type="text"
               className="form-control"
@@ -130,11 +132,22 @@ class BlogCreate extends Component {
               autoFocus={true}
               onChange={this.onChangeInputValue}
             />
-          </div>
+          </div> 
+          */}
+          <ResuabilityBlogInput 
+          type="password" 
+          className="form-control"
+          id="header"
+          name="header"
+          placeholder={t("blog_header")}
+          required={true}
+          autoFocus={true}
+          onChange={this.onChangeInputValue}
+          />
 
           {/* CONTENT */}
           <div className="form-group mb-4">
-            <span>{t("blog_content")}</span>
+            <label>{t("blog_content")}</label>
             <textarea
               className="form-control"
               id="content"
