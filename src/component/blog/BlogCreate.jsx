@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
+import BlogApi from '../../services/BlogApi';
 
 class BlogCreate extends Component {
 
@@ -19,8 +20,8 @@ class BlogCreate extends Component {
     }; //end constructor
 
     // BIND
-    this.onChangeIsRead=this.onChangeIsRead.bind(this);
-    this.onChangeInputValue=this.onChangeInputValue.bind(this);
+    this.onChangeIsRead = this.onChangeIsRead.bind(this);
+    this.onChangeInputValue = this.onChangeInputValue.bind(this);
   }
 
   // CDM
@@ -41,14 +42,36 @@ class BlogCreate extends Component {
     // const value=event.target.value;
     // console.log("value: "+value);
     //2.YOL
-    const{name,value}=event.target
+    const { name, value } = event.target
     //console.log(name+" "+value);
-    console.log( `${name} ${value}`);
+    console.log(`${name} ${value}`);
 
     // STATE
     this.setState({
-      [name]:value,
+      [name]: value,
     })
+  }
+
+
+  // CREATE SUBMIT
+  createSubmit = async (event) => {
+    // Browser sen dur bir şey yapma
+    event.preventDefault();
+    const { header, content } = this.state;
+    const blogDto = {
+      header, content
+    }
+    console.log(blogDto);
+
+    BlogApi.blogServiceCreate(blogDto).then((response) => {
+      if (response.status == 200) {
+        //alert("Ekleme Başarılı")
+        console.log("Ekleme Başarılı")
+      }
+    }).catch((err) => {
+      console.error(err)
+    }); //end then
+
   }
 
   //RENDER
@@ -101,13 +124,16 @@ class BlogCreate extends Component {
             <label className="form-check-label" htmlFor="isReadId"> Anlaşmayı okunuz mu </label>
           </div>
 
-          {/* SUBMIT */}
+          {/* RESET */}
           <button
             className="btn btn-danger mb-5 me-2">{t('reset')}</button>
 
+          {/* SUBMIT */}
           <button
             className="btn btn-primary mb-5"
-            disabled={!isRead}>{t('submit')}</button>
+            disabled={!isRead}
+            onClick={this.createSubmit}
+            >{t('submit')}</button>
           <br /><br /><br /><br /> <br /><br /><br />
         </form>
       </React.Fragment>
