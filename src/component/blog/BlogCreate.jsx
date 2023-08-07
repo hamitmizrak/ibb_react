@@ -83,7 +83,7 @@ class BlogCreate extends Component {
       // SPINNER GÖNDERMEDEN ÖNCE
       this.setState({
         spinnerData: true,
-        multipleRequest: false
+        multipleRequest: true
       })
       // CREATE
       const response = await BlogApi.blogServiceCreate(blogDto);
@@ -93,15 +93,15 @@ class BlogCreate extends Component {
         // SPINNER GÖNDERMEDEN ÖNCE
         this.setState({ 
           spinnerData: false,
-          multipleRequest: true
+          multipleRequest: false
          })
       }
     } catch (err) {
       console.error(err);
       // HATA SPINNER ÇALIŞSIN
       this.setState({ 
-        spinnerData: true,
-        multipleRequest: false
+        spinnerData: true, 
+        multipleRequest: true
       })
     }
   }
@@ -119,7 +119,7 @@ class BlogCreate extends Component {
 
         <form>
           {/* HEADER */}
-          {/* 
+          {/*
           <div className="form-group mb-4">
             <label>{t("blog_header")}</label>
             <input
@@ -135,13 +135,14 @@ class BlogCreate extends Component {
           </div> 
           */}
           <ResuabilityBlogInput 
-          type="password" 
+          type="text" 
           className="form-control"
           id="header"
           name="header"
           placeholder={t("blog_header")}
           required={true}
           autoFocus={true}
+          title="Bu Header alanını lütfen doldurunuz"
           onChange={this.onChangeInputValue}
           />
 
@@ -155,7 +156,8 @@ class BlogCreate extends Component {
               required={true}
               placeholder={t("blog_content")}
               onChange={this.onChangeInputValue}
-              rows="6"></textarea>
+              rows="6"
+              title="Bu Content alanını lütfen doldurunuz"></textarea>
           </div>
 
           <div className="form-check mb-3">
@@ -177,7 +179,7 @@ class BlogCreate extends Component {
           <button
             type="submit"
             className="btn btn-primary mb-5"
-            disabled={(!isRead) && (multipleRequest)}
+            disabled={ (!isRead) || (multipleRequest)}
             onClick={this.createSubmit}>
             {(this.state.spinnerData) && <span className="spinner-border text-warning"></span>}
             {t('submit')}

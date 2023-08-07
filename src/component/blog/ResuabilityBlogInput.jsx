@@ -4,7 +4,7 @@ import React from 'react'
 // FUNCTION
 export default function ResuabilityBlogInput(props) {
 
-const {type,className,id,name,placeholder,required,autoFocus,onChange}=props;
+const {type,className,id,name,placeholder,required,autoFocus,onChange,title}=props;
 
     // RETURN
     return (
@@ -20,6 +20,7 @@ const {type,className,id,name,placeholder,required,autoFocus,onChange}=props;
                     required={required}
                     autoFocus={autoFocus}
                     onChange={onChange}
+                    title={title}
                 />
             </div>
         </React.Fragment>
