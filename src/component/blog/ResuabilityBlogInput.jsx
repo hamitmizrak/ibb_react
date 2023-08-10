@@ -4,7 +4,7 @@ import React from 'react'
 // FUNCTION
 export default function ResuabilityBlogInput(props) {
 
-const {type,className,id,name,placeholder,required,autoFocus,onChange,title}=props;
+    const { type, className, id, name, placeholder, required, autoFocus, onChange, title, errors } = props;
 
     // RETURN
     return (
@@ -22,6 +22,7 @@ const {type,className,id,name,placeholder,required,autoFocus,onChange,title}=pro
                     onChange={onChange}
                     title={title}
                 />
+                <span className="text-danger">{errors}</span>
             </div>
         </React.Fragment>
     )
