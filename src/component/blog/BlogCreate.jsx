@@ -154,7 +154,7 @@ const {header,content}=validationErrors;
           */}
           <ResuabilityBlogInput
             type="text"
-            className="form-control"
+            classNameProps="form-control"
             id="header"
             name="header"
             placeholder={t("blog_header")}
