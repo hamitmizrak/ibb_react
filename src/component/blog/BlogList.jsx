@@ -56,7 +56,6 @@ class BlogList extends Component {
     //alert(id);
     //this.props.history.push("/blog/view/"+id)
     window.open("/blog/view/"+id);
-    
   }
 
   // DELETE
@@ -119,12 +118,13 @@ class BlogList extends Component {
 
                   {/* VIEW */}
                   <td>
-                    <Link to={`/blog/view/${temp.id}`}>
+                    {/* <Link to={`/blog/view/${temp.id}`}> </Link> */}
                     <i
                       className="fa-solid fa-binoculars text-warning text-center"
-                      style={{ "cursor": "pointer" }}>
+                      style={{ "cursor": "pointer" }}
+                      onClick={() => this.view(temp.id)}>
                     </i>
-                    </Link>
+                   
                   </td>
 
                   {/* DELETE */}

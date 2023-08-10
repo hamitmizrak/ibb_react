@@ -26,7 +26,7 @@ export default function ResuabilityBlogInput(props) {
                     onChange={onChange}
                     title={title}
                 />
-                <span className="text-danger">{errors}</span>
+                <span className={"text-danger"}>{errors}</span>
             </div>
         </React.Fragment>
     )

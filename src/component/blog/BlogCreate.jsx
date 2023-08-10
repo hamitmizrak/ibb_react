@@ -107,7 +107,7 @@ class BlogCreate extends Component {
       console.error(err);
       // HATA SPINNER ÇALIŞSIN
       this.setState({
-        spinnerData: true,
+        //spinnerData: true,
         multipleRequest: true
       }); //end setState
 
@@ -126,8 +126,8 @@ class BlogCreate extends Component {
     //object destructing
     const { t } = this.props;
     // Hatayı Yakalama
-    const { isRead, multipleRequest,validationErrors} = this.state;
-const {header,content}=validationErrors;
+    const { isRead, multipleRequest, validationErrors } = this.state;
+    const { header, content } = validationErrors;
 
     // RETURN
     return (
@@ -178,7 +178,7 @@ const {header,content}=validationErrors;
               onChange={this.onChangeInputValue}
               rows="6"
               title="Bu Content alanını lütfen doldurunuz"></textarea>
-          <span className="text-danger">{content}</span>
+            <span className="text-danger">{content}</span>
           </div>
 
           <div className="form-check mb-3">
