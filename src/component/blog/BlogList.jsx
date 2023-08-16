@@ -54,9 +54,12 @@ class BlogList extends Component {
   // VIEW
   view(id) {
     //alert(id);
-    //this.props.history.push("/blog/view/"+id)
-    window.open("/blog/view/"+id);
+    //this.props.history.push("/blog/view/"+id);
+    this.props.history.push(`/blog/view/${id}`);
+    //window.open("/blog/view/"+id);
   }
+
+
 
   // DELETE
   delete(id) {
@@ -73,9 +76,10 @@ class BlogList extends Component {
 
   }
 
+
   //RENDER
   render() {
-
+    
     //object destructing
     const { t } = this.props;
     const { blogList } = this.state;
@@ -118,12 +122,21 @@ class BlogList extends Component {
 
                   {/* VIEW */}
                   <td>
-                    {/* <Link to={`/blog/view/${temp.id}`}> </Link> */}
+                     <Link to={
+                      
+                      {     
+                        pathname: `/blog/view/${temp.id}`,
+                        state:this.state
+                       }
+                    }> 
+        
                     <i
                       className="fa-solid fa-binoculars text-warning text-center"
                       style={{ "cursor": "pointer" }}
-                      onClick={() => this.view(temp.id)}>
+                     >
+                       {/* onClick={() => this.view(temp.id)} */}
                     </i>
+                    </Link> 
                    
                   </td>
 

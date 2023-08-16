@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import BlogApi from '../../services/BlogApi';
 import ResuabilityBlogInput from './ResuabilityBlogInput';
+import { redirect } from 'react-router-dom';
 
 class BlogCreate extends Component {
 
@@ -102,6 +103,7 @@ class BlogCreate extends Component {
           spinnerData: false,
           multipleRequest: false
         })
+        redirect("/blog/list");
       }
     } catch (err) {
       console.error(err);
