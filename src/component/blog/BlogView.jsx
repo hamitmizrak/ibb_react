@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import BlogApi from '../../services/BlogApi';
-
 import cardPicture from '../../assist/img/resim.jpg'
-
-
 
 // CLASS
 class BlogView extends Component {
@@ -18,9 +15,9 @@ class BlogView extends Component {
         this.state = {
             //id: this.props.match.params.id
             id:1,
-            registerDto:{}
-        }
-    }
+            registerDto:{},
+        }  // end state
+    } //end constructor
 
     // CDM
     componentDidMount(){
@@ -34,7 +31,7 @@ class BlogView extends Component {
 
     // RENDER
     render() {
-
+ const {id,header}=this.state.registerDto
         // RETURN
         return (
             <React.Fragment>
@@ -43,8 +40,8 @@ class BlogView extends Component {
                     <img style={{width:"50%"}} src={cardPicture} className='mx-auto' alt=""/>
                     <div className="card-body mx-auto">
                         <h4 className="card-title mx-auto">ID: {this.state.id} Lorem ipsum dolor sit amet.</h4>
-                        <h4 className="card-title mx-auto">ID: {this.state.registerDto.id} Lorem ipsum dolor sit amet.</h4>
-                        <p className="card-text"><b>HEADER:</b> {this.state.registerDto.header}</p>
+                        <h4 className="card-title mx-auto">ID: {id} Lorem ipsum dolor sit amet.</h4>
+                        <p className="card-text"><b>HEADER:</b> {header}</p>
                         <p className="card-text"><b><mark>CONTENT:</mark></b>{this.state.registerDto.content}</p>
                         <p className="card-text"><i style={{fontWeight:"bold"}}>DATE:</i> <q>{this.state.registerDto.systemDate}</q></p>
                     </div>
