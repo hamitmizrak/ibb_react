@@ -32,7 +32,7 @@ class BlogView extends Component {
     // RENDER
     render() {
         const { id, header } = this.state.registerDto
-        const {t}=this.props;
+        const { t } = this.props;
         // RETURN
         return (
             <React.Fragment>
