@@ -65,6 +65,52 @@ class BlogUpdate extends Component {
   }
 
 
+  // CREATE SUBMIT
+  updateSubmit = async (event) => {
+    // Browser sen dur bir şey yapma lütfen
+    event.preventDefault();
+
+    const { header, content } = this.state;
+    const blogDto = { header, content }
+    //console.log(blogDto);
+
+    // (asyn-await)
+    try {
+      // SPINNER GÖNDERMEDEN ÖNCE
+      this.setState({
+        spinnerData: true,
+        multipleRequest: true
+      })
+      // UPDATE
+      const response = await BlogApi.blogServiceUpdateId(this.state.id,blogDto);
+      if (response.status == 200) {
+        //alert("Ekleme Başarılı")
+        console.log("Güncelleme Başarılı");
+        // SPINNER GÖNDERMEDEN ÖNCE
+        this.setState({
+          spinnerData: false,
+          multipleRequest: false
+        })
+       // PHP
+       this.props.history.push("/blog/list")
+      }
+    } catch (err) {
+      console.error(err);
+      // HATA SPINNER ÇALIŞSIN
+      this.setState({
+        //spinnerData: true,
+        multipleRequest: true
+      }); //end setState
+
+      // Backentten gelen Hata varsa yakala
+      if (err.response.data.validationErrors) {
+        this.setState({
+          validationErrors: err.response.data.validationErrors
+        }) //end setState
+      } //end if
+    } // end catch
+  } //  end Submit
+
 
   // RENDER
   render() {
@@ -73,7 +119,7 @@ class BlogUpdate extends Component {
     const { t } = this.props;
 
     // Hatayı Yakalama
-    const { validationErrors, multipleRequest } = this.state;
+    const { validationErrors, multipleRequest} = this.state;
     const { header, content } = validationErrors;
 
     // RETURN
@@ -94,6 +140,7 @@ class BlogUpdate extends Component {
               required={true}
               autoFocus={true}
               onChange={this.onChangeInputValue}
+              value={this.state.header}
             />
             <span className="text-danger">{header}</span>
           </div>
@@ -109,6 +156,7 @@ class BlogUpdate extends Component {
               required={true}
               autoFocus={true}
               onChange={this.onChangeInputValue}
+              value={this.state.content}
             />
             <span className="text-danger">{content}</span>
           </div>
@@ -118,7 +166,7 @@ class BlogUpdate extends Component {
             type="submit"
             className="btn btn-primary mb-5"
             disabled={(multipleRequest)}
-            onClick={this.createSubmit}>
+            onClick={this.updateSubmit}>
             {(this.state.spinnerData) && <span className="spinner-border text-warning"></span>}
             {t('submit')}
           </button>
