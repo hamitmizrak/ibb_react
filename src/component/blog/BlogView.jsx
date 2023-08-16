@@ -14,36 +14,37 @@ class BlogView extends Component {
         super(props);
         this.state = {
             //id: this.props.match.params.id
-            id:1,
-            registerDto:{},
+            id: 1,
+            registerDto: {},
         }  // end state
     } //end constructor
 
     // CDM
-    componentDidMount(){
-        BlogApi.blogServiceFindById(this.state.id).then((response)=>{
+    componentDidMount() {
+        BlogApi.blogServiceFindById(this.state.id).then((response) => {
             console.log(response);
             this.setState({
-                registerDto:response.data
+                registerDto: response.data
             })
         })
     }
 
     // RENDER
     render() {
- const {id,header}=this.state.registerDto
+        const { id, header } = this.state.registerDto
+        const {t}=this.props;
         // RETURN
         return (
             <React.Fragment>
                 <br /><br /><br /><br /><br />
                 <div className="card">
-                    <img style={{width:"50%"}} src={cardPicture} className='mx-auto' alt=""/>
+                    <img style={{ width: "50%" }} src={cardPicture} className='mx-auto' alt="" />
                     <div className="card-body mx-auto">
-                        <h4 className="card-title mx-auto">ID: {this.state.id} Lorem ipsum dolor sit amet.</h4>
-                        <h4 className="card-title mx-auto">ID: {id} Lorem ipsum dolor sit amet.</h4>
-                        <p className="card-text"><b>HEADER:</b> {header}</p>
-                        <p className="card-text"><b><mark>CONTENT:</mark></b>{this.state.registerDto.content}</p>
-                        <p className="card-text"><i style={{fontWeight:"bold"}}>DATE:</i> <q>{this.state.registerDto.systemDate}</q></p>
+                        <h4 className="card-title mx-auto">{t('blog_id')}: {this.state.id} Lorem ipsum dolor sit amet.</h4>
+                        <h4 className="card-title mx-auto">{t('blog_id')}: {id} Lorem ipsum dolor sit amet.</h4>
+                        <p className="card-text"><b>{t('blog_header')}:</b> {header}</p>
+                        <p className="card-text"><b><mark>{t('blog_content')}:</mark></b>{this.state.registerDto.content}</p>
+                        <p className="card-text"><i style={{ fontWeight: "bold" }}>{t('date')}:</i> <q>{this.state.registerDto.systemDate}</q></p>
                     </div>
                 </div>
             </React.Fragment>
