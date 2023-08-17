@@ -44,7 +44,6 @@ export default function BlogCreate2() {
           />
         </div>
 
-
         <div className="form-group mb-4">
           <label>Content</label>
           <input
@@ -53,7 +52,7 @@ export default function BlogCreate2() {
             placeholder="content"
             required={true}
             autoFocus={false}
-            onChange={(event) => { setContent(event.target.value) }}
+            onChange={(event) => {setContent(event.target.value) }}
           />
         </div>
 
