@@ -8,14 +8,19 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 // HEADER , FOOTER
 import Header from './component/Header';
 import Footer from './component/Footer';
+import Main from './component/Main';
 
-// Component CRUD
+// Component Class CRUD
 import BlogList from './component/blog/BlogList';
 import BlogUpdate from './component/blog/BlogUpdate';
 import BlogView from './component/blog/BlogView';
 import BlogCreate from './component/blog/BlogCreate';
-import Main from './component/Main';
-//
+
+// Component Function CRUD
+import BlogList2 from './component/blog_function/BlogList2';
+import BlogUpdate2 from './component/blog_function/BlogUpdate2';
+import BlogView2 from './component/blog_function/BlogView2';
+import BlogCreate2 from './component/blog_function/BlogCreate2';
 
 
 // CLASS
@@ -51,11 +56,18 @@ class RouterBlog extends Component {
                     <Routes>
                         <Route path='/' element={<Main />} />
 
-                        {/* Blog CRUD */}
+                        {/* Blog Class CRUD */}
                         <Route path='/blog/list' element={<BlogList />} />
                         <Route path='/blog/create' element={<BlogCreate />} />
                         <Route path='/blog/view/:id' element={<BlogView />} />
                         <Route path='/blog/update/:id' element={<BlogUpdate />} />
+
+                        {/* Blog Function CRUD */}
+                        <Route path='/blog/list2' element={<BlogList2 />} />
+                        <Route path='/blog/create2' element={<BlogCreate2 />} />
+                        <Route path='/blog/view2' element={<BlogView2 />} />
+                        <Route path='/blog/update2' element={<BlogUpdate2 />} />
+
                         {/* for bad request */}
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
