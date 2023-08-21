@@ -21,6 +21,8 @@ export default class Main extends Component {
                     <span style={{"color": "red"}}>Nasılsınız Güzel insanlar.</span>
                 </div>
 
+                <Link to="/blog/list2" className="btn btn-primary"><i class="fa-solid fa-plus"></i>Function List</Link>
+
                 <Link to="/blog/list" className="btn btn-primary">  <img src={cardPicture}/></Link>
 
                 <br/>

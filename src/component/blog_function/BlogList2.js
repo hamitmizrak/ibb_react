@@ -4,6 +4,10 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // FUNCTION
+// Hook: Class component yerine function componentti kullanmaya denir
+// useNavigate: Yönlendirme(redirect)
+// useState(): o anlık veriyi göstersin
+// useEffect(): CDM gibi veri takibini sağlar.
 export default function BlogList2() {
 
   // Redirect
@@ -12,6 +16,7 @@ export default function BlogList2() {
   // STATE
   const [MockApi, setMockApi] = useState([]);
 
+  // useEffect
   useEffect(() => {
     axios.get("https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project")
       .then((response) => {
@@ -24,13 +29,17 @@ export default function BlogList2() {
       })
   }) //end useEffect
 
-  // Blog Object Set/Get
-  // SET
-  const setBlogData = (data) => {
+  // UPDATE
+  const setUpdateBlogData = (data) => {
     let { id, header, content } = data;
-    localStorage.setItem("Blog_List_ID", id);
-    localStorage.setItem("Blog_List_HEADER", header);
-    localStorage.setItem("Blog_List_CONTENT", content);
+    localStorage.setItem("id", id);
+    localStorage.setItem("header", header);
+    localStorage.setItem("content", content);
+  }
+
+  // VIEW
+  const setViewBlogData = (id) => {
+    localStorage.setItem("view_id",id);
   }
 
   // GET
@@ -44,24 +53,29 @@ export default function BlogList2() {
       .catch((err) => {
         console.error(err);
       })
-  }
+  } //end getBlogData
 
   // DELETE
   const blogDelete = (id) => {
-    axios.delete(`https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project/${id}`)
-      .then(() => {
-        getBlogData();
-        navigate("/blog/list2")
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-  }
+    if (window.confirm("Silmek istediğinziden emin misiniz ?")) {
+      axios.delete(`https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project/${id}`)
+        .then(() => {
+          getBlogData();
+          navigate("/blog/list2")
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+    } else {
+      window.alert("Silinmedi !!!")
+    }
+  } //end blogDelete
 
   // RETURN
   return (
     <React.Fragment>
       <h1 className="text-center display-4 text-uppercase mt-5">Blog List</h1>
+      <Link to="/blog/create2" className="btn btn-outline-primary mb-3" >Blog Ekle</Link>
       <table className="table table-hover table-striped">
         <thead>
           <tr>
@@ -87,19 +101,19 @@ export default function BlogList2() {
                 {/* UPDATE */}
                 <td>
                   <Link to="/blog/update2">
-                    <button type="button" onClick={() => setBlogData(temp)}><i className="fa-solid fa-pen-nib text-primary text-center" ></i></button>
+                    <button type="button" onClick={() => setUpdateBlogData(temp)}><i className="fa-solid fa-pen-nib text-primary text-center" ></i></button>
                   </Link>
                 </td>
 
                 <td>
                   <Link to="/blog/view2">
-                    <button type="button" onClick={() => setBlogData(temp)}><i  className="fa-solid fa-binoculars text-warning text-center"></i></button>
+                    <button type="button" onClick={() => setViewBlogData(temp.id)}><i className="fa-solid fa-binoculars text-warning text-center"></i></button>
                   </Link>
                 </td>
 
                 {/* DELETE */}
                 <td>
-                  <button type="button" onClick={() => blogDelete(temp.id)}><i   className="fa-solid fa-trash text-danger text-center"></i></button>
+                  <button type="button" onClick={() => blogDelete(temp.id)}><i className="fa-solid fa-trash text-danger text-center"></i></button>
                 </td>
               </tr>
             )
