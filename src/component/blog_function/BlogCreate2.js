@@ -15,10 +15,13 @@ export default function BlogCreate2() {
   const [content, setContent] = useState('');
 
   // POST
-  const postBlog = () => {
-    axios.post("https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project", {
-      header, content
-    })
+  const postBlog = (event) => {
+    // Browser sen dur bir şey yapma
+    event.preventDefault();
+
+    const blogDto = { header, content };
+    console.log(blogDto);
+    axios.post("https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project", blogDto)
       .then(() => {
         navigate("/blog/list2")
       })
