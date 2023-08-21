@@ -29,8 +29,8 @@ export default function BlogUpdate2() {
     const blogDto = { header, content };
     console.log(blogDto);
 
-      const response=await axios.put("https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project/" + id,blogDto)
-      //const response = await axios.put(`https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project/${id}`,blogDto)
+      //const response=await axios.put("https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project/" + id,blogDto)
+      const response = await axios.put(`https://64de4c64825d19d9bfb26b0b.mockapi.io/api/v1/blog/react_project/${id}`,blogDto)
       if (response.status == 200) {
         navigate("/blog/list2")
       }
