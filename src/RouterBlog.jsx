@@ -11,10 +11,10 @@ import Footer from './component/Footer';
 import Main from './component/Main';
 
 // Component Class CRUD
-import BlogList from './component/blog/BlogList';
-import BlogUpdate from './component/blog/BlogUpdate';
-import BlogView from './component/blog/BlogView';
-import BlogCreate from './component/blog/BlogCreate';
+import BlogList from './component/blog_class/BlogList';
+import BlogUpdate from './component/blog_class/BlogUpdate';
+import BlogView from './component/blog_class/BlogView';
+import BlogCreate from './component/blog_class/BlogCreate';
 
 // Component Function CRUD
 import BlogList2 from './component/blog_function/BlogList2';

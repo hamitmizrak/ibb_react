@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import OtherLanguageReusability from '../internationalization/OtherLanguageReusability';
 
+// Context
+import { LoginAuthenticationContext } from './LoginContext';
+
 class Header extends Component {
 
     // displayName
@@ -21,10 +24,46 @@ class Header extends Component {
 
     // Function
 
+    // Context Verisini almak
+    static contextType = LoginAuthenticationContext;
+
     // Render
     render() {
         // object destructing
         const { logo, t } = this.props;
+
+        // Context
+        const { state,logout } = this.context;
+        const {isLogin}=state;
+
+        let isLoginHideShow = (
+            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li className="nav-item dropdown">
+                    <a
+                        className="nav-link dropdown-toggle"
+                        href="#"
+                        id="dropdownId"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        {t('member_process')}
+                    </a>
+                    <div className="dropdown-menu" aria-labelledby="dropdownId">
+                        <a className="dropdown-item" href="#">
+                            {t('login')}
+                        </a>
+                        <a className="dropdown-item" href="#">
+                            {t('register')}
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        );
+
+        if (isLogin) {
+            return isLoginHideShow;
+        }
 
         //RETURN
         return (
@@ -66,28 +105,8 @@ class Header extends Component {
                                 </li>
                             </ul>
 
-                            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li className="nav-item dropdown">
-                                    <a
-                                        className="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="dropdownId"
-                                        data-bs-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                    >
-                                         {t('member_process')}
-                                    </a>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownId">
-                                        <a className="dropdown-item" href="#">
-                                        {t('login')}
-                                        </a>
-                                        <a className="dropdown-item" href="#">
-                                        {t('register')}
-                                        </a>
-                                    </div>
-                                </li> 
-                            </ul>
+                            {/* Eğer Loginse Göster yoksa gösterme */}
+                            {isLoginHideShow}
 
                             {/* dil için */}
                             <OtherLanguageReusability />
